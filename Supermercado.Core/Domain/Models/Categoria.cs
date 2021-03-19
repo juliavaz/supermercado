@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Supermercado.Api.Models
+namespace Supermercado.Core.Domain.Models
 {
     public class Categoria
     {

@@ -1,0 +1,20 @@
+﻿@model Supermercado.Core.Domain.Requests.ProdutoRequest
+@{
+    ViewData["Title"] = "Novo Produto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Novo Produto</h1>
+<form asp-action="SalvarProduto">
+    <p>
+        <label>Nome</label><br />
+        <input type="text" width="50" maxlength="20" asp-for="Nome" />
+    </p>
+    <p>
+        <label>Quantidade</label><br />
+        <input type="text" width="50" maxlength="20" asp-for="QuantidadePacote" />
+    </p>
+
+    <input type="submit" value="Enviar" />
+
+</form>

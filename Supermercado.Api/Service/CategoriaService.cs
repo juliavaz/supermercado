@@ -1,6 +1,6 @@
-﻿using Supermercado.Api.Domain.Repositories;
-using Supermercado.Api.Domain.Services;
-using Supermercado.Api.Models;
+﻿using Supermercado.Core.Domain.Models;
+using Supermercado.Core.Domain.Repositories;
+using Supermercado.Core.Domain.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,5 +19,11 @@ namespace Supermercado.Api.Service
         {
             return await _categoriaRepository.ListAsync();
         }
+
+        public void Insert(Categoria categoria)
+        {
+            _categoriaRepository.AddAsync(categoria);
+        }
+
     }
 }

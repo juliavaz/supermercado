@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Supermercado.Core.Domain.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Listar Categorias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Categorias</h1>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Nome</li>
+    }
+</ul>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Categorias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="col-lg-12" style="text-align: right !important;">
+    <a class="btn btn-secondary" asp-area="" asp-controller="Categoria" asp-action="ListarCategorias">Listar Categorias</a>
+</div>
+<br />
+
+<div class="text-center">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Categorias</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Supermercado.Api.Domain.Repositories;
-using Supermercado.Api.Domain.Services;
 using Supermercado.Api.Persistence.Contexts;
 using Supermercado.Api.Persistence.Repositories;
 using Supermercado.Api.Service;
+using Supermercado.Core.Domain.Repositories;
+using Supermercado.Core.Domain.Services;
 
 namespace Supermercado
 {
@@ -26,13 +26,12 @@ namespace Supermercado
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<AppDbContext>(options =>
-            {
-                options.UseInMemoryDatabase("supermercado-api-in-memory");
-            });
+            services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("supermercado-api-in-memory"));
 
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IProdutoService, ProdutoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

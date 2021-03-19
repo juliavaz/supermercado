@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Supermercado.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Supermercado.Controllers
 {
@@ -22,7 +18,6 @@ namespace Supermercado.Controllers
         {
             return View();
         }
-
         public IActionResult Categoria()
         {
             return View();

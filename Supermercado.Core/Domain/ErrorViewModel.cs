@@ -1,5 +1,3 @@
-using System;
-
 namespace Supermercado.Models
 {
     public class ErrorViewModel

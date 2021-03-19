@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Supermercado.Api.Domain.Repositories;
-using Supermercado.Api.Models;
 using Supermercado.Api.Persistence.Contexts;
-using System;
+using Supermercado.Core.Domain.Models;
+using Supermercado.Core.Domain.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -20,6 +19,7 @@ namespace Supermercado.Api.Persistence.Repositories
         public async Task AddAsync(Categoria categoria)
         {
             await _context.Categorias.AddAsync(categoria);
+            _context.SaveChanges();
         }
 
         public async Task<Categoria> FindByIdAsync(int id)

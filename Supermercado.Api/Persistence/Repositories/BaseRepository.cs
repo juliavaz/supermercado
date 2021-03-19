@@ -1,8 +1,4 @@
 ﻿using Supermercado.Api.Persistence.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Supermercado.Api.Persistence.Repositories
 {
@@ -15,5 +11,9 @@ namespace Supermercado.Api.Persistence.Repositories
             _context = context;
         }
 
+        public void SaveChances()
+        {
+            _context.SaveChanges();
+        }
     }
 }

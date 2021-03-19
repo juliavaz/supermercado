@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Supermercado.Api.Models
+namespace Supermercado.Core.Domain.Models
 {
     public enum EnumUnidadeMedida : byte
     {

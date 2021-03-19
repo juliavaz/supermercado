@@ -1,8 +1,8 @@
-﻿using Supermercado.Api.Models;
+﻿using Supermercado.Core.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Supermercado.Api.Domain.Repositories
+namespace Supermercado.Core.Domain.Repositories
 {
     public interface ICategoriaRepository
     {
