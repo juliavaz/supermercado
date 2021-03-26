@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Supermercado.Core.Domain.Repositories;
+using Supermercado.Core.Domain.IRepositories;
+using Supermercado.Core.Domain.IServices;
 using Supermercado.Core.Domain.Requests;
-using Supermercado.Core.Domain.Services;
 
 namespace Supermercado.Api.Controllers
 {
@@ -9,11 +9,13 @@ namespace Supermercado.Api.Controllers
     {
         private readonly IProdutoService _produtoService;
         private readonly IProdutoRepository _produtoRepository;
+        private readonly ICategoriaService _categoriaService;
 
-        public ProdutoController(IProdutoService produtoService, IProdutoRepository produtoRespository)
+        public ProdutoController(IProdutoService produtoService, IProdutoRepository produtoRespository, ICategoriaService categoriaService)
         {
             _produtoService = produtoService;
             _produtoRepository = produtoRespository;
+            _categoriaService = categoriaService;
         }
 
         public IActionResult Index()
@@ -24,7 +26,10 @@ namespace Supermercado.Api.Controllers
 
         public IActionResult NovoProduto()
         {
-            return View(new ProdutoRequest());
+            var request = new ProdutoRequest();
+            request.Categorias = _categoriaService.List();
+
+            return View(request);
         }
 
         public IActionResult SalvarProduto(ProdutoRequest produtoRequest)

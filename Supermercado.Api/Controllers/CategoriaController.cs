@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Services;
+using Supermercado.Core.Domain.IServices;
+using Supermercado.Core.Domain.Requests;
 
 namespace Supermercado.Api.Controllers
 {
     public class CategoriaController : Controller
     {
-        private readonly ICategoriaService _categoriaService; 
+        private readonly ICategoriaService _categoriaService;
 
         public CategoriaController(ICategoriaService categoriaService)
         {
@@ -15,25 +15,26 @@ namespace Supermercado.Api.Controllers
 
         public IActionResult Index()
         {
-            var categorias = _categoriaService.ListAsync();
-            return View(categorias.Result);
+            var categorias = _categoriaService.List();
+            return View(categorias);
         }
 
         public IActionResult NovaCategoria()
         {
-            var categoria = new Categoria()
-            {
-                Nome = "Material Esportivo",
-            };
+            return View(new CategoriaRequest());
+        }
 
-            _categoriaService.Insert(categoria);
-            return View();
+        public IActionResult SalvarCategoria(CategoriaRequest categoriaRequest)
+        {
+            _categoriaService.Insert(categoriaRequest);
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult ListarCategorias()
         {
-            var categorias = _categoriaService.ListAsync();
-            return View(categorias.Result);
+            var categorias = _categoriaService.List();
+            return View(categorias);
         }
     }
 }

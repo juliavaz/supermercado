@@ -20,14 +20,14 @@ namespace Supermercado.Api.Persistence.Contexts
                 b => {
                     b.ToTable("Categorias");
                     b.HasKey(p => p.Id); // hasKey -> primary key
-                    b.Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();  // property -> colunas e restrições
+                    b.Property(p => p.Id).IsRequired();  // property -> colunas e restrições
                     b.Property(p => p.Nome).IsRequired().HasMaxLength(50);
                     b.HasMany(p => p.Produtos).WithOne(p => p.Categoria).HasForeignKey(p => p.CategoriaId);
                     b.HasData(
                         // hasData -> configuração para alimentar os dados
-                        // Id definido manualmente pois é um provedor in-memory                        
-                        new Categoria { Id = 100, Nome = "Frutas e Vegetais" },
-                        new Categoria { Id = 101, Nome = "Laticínios" }
+                        // Id definido manualmente pois é um provedor in-memory
+                        new Categoria(101,"Frutas e Vegetais"),
+                        new Categoria(102, "Laticínios")
                     );
                 });
 
@@ -39,6 +39,12 @@ namespace Supermercado.Api.Persistence.Contexts
                     b.Property(p => p.Nome).IsRequired().HasMaxLength(50);
                     b.Property(p => p.QuantidadePacote).IsRequired();
                     b.Property(p => p.UnidadeMedida).IsRequired();
+                    /**b.HasData( new Produto {
+                        Nome = "Leite",
+                        QuantidadePacote = 2,
+                        UnidadeMedida = EnumUnidadeMedida.Unidade,
+                        CategoriaId = 101
+                    });**/
                 });
         }
     }

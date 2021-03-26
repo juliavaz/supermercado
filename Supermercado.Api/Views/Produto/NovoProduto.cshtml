@@ -14,6 +14,16 @@
         <label>Quantidade</label><br />
         <input type="text" width="50" maxlength="20" asp-for="QuantidadePacote" />
     </p>
+    <p>
+        <label>Categoria</label><br />
+        <select asp-for="Categorias" asp-items="@(new SelectList(Model.Categorias,"Nome", "Nome"))" ></select>
+    </p>
+    <p>
+        @foreach (var item in Model.Categorias)
+        {
+            @item.Nome
+        }
+    </p>
 
     <input type="submit" value="Enviar" />
 

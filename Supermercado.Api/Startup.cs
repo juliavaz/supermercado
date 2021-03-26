@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Supermercado.Api.Config;
 using Supermercado.Api.Persistence.Contexts;
 using Supermercado.Api.Persistence.Repositories;
-using Supermercado.Api.Service;
-using Supermercado.Core.Domain.Repositories;
+using Supermercado.Core.Domain.IRepositories;
+using Supermercado.Core.Domain.IServices;
 using Supermercado.Core.Domain.Services;
 
 namespace Supermercado
@@ -27,6 +28,8 @@ namespace Supermercado
             services.AddControllersWithViews();
 
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("supermercado-api-in-memory"));
+
+            services.AddSingleton(_ => AutoMapperConfig.InitializeMapper());
 
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<ICategoriaService, CategoriaService>();

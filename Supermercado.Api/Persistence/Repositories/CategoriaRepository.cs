@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Supermercado.Api.Persistence.Contexts;
+using Supermercado.Core.Domain.IRepositories;
 using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,17 +9,16 @@ namespace Supermercado.Api.Persistence.Repositories
 {
     public class CategoriaRepository : BaseRepository, ICategoriaRepository
     {
-        public CategoriaRepository(AppDbContext context) : base(context) { }
+        public CategoriaRepository(AppDbContext appDbContext) : base(appDbContext) { }
+
+        public void Insert(Categoria categoria)
+        {
+            _context.Add(categoria);
+        }
 
         public async Task<IEnumerable<Categoria>> ListAsync()
         {
             return await _context.Categorias.ToListAsync();
-        }
-
-        public async Task AddAsync(Categoria categoria)
-        {
-            await _context.Categorias.AddAsync(categoria);
-            _context.SaveChanges();
         }
 
         public async Task<Categoria> FindByIdAsync(int id)
@@ -30,6 +29,12 @@ namespace Supermercado.Api.Persistence.Repositories
         public void Remove(Categoria categoria)
         {
             _context.Categorias.Remove(categoria);
+        }
+
+        public async Task AddAsync(Categoria categoria)
+        {
+            await _context.Categorias.AddAsync(categoria);
+            _context.SaveChanges();
         }
 
         public void Update(Categoria categoria)

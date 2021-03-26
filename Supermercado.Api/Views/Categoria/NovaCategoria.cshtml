@@ -1,0 +1,30 @@
+﻿@model Supermercado.Core.Domain.Requests.CategoriaRequest
+@{
+    ViewData["Title"] = "Nova Categorias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Nova Categoria</h1>
+
+<form asp-action="SalvarCategoria">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nome</label><br />
+        <div class="col-sm-10">
+            <input class="form-control" type="text" width="50" maxlength="20" asp-for="Nome" placeholder="Insira o nome da Categoria">
+        </div>
+    </div><br />
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+<!--<form asp-action="SalvarCategoria">
+    <p>
+        <label>Nome</label><br />
+        <input type="text" width="50" maxlength="20" asp-for="Nome" />
+    </p>
+
+    <input type="submit" value="Enviar" />
+</form>-->

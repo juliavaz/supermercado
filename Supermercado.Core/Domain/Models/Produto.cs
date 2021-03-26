@@ -2,12 +2,12 @@
 {
     public class Produto
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public short QuantidadePacote { get; set; }
-        public EnumUnidadeMedida UnidadeMedida { get; set; }
-        public int CategoriaId { get; set; }
-        public Categoria Categoria { get; set; }
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public short QuantidadePacote { get; private set; }
+        public EnumUnidadeMedida UnidadeMedida { get; private set; }
+        public int CategoriaId { get; private set; }
+        public Categoria Categoria { get; private set; }
 
         public Produto(string nome, short quantidadePacote, EnumUnidadeMedida unidadeMedida, Categoria categoria)
         {

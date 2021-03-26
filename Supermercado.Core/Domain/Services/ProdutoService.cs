@@ -1,9 +1,9 @@
-﻿using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Repositories;
+﻿using Supermercado.Core.Domain.IRepositories;
+using Supermercado.Core.Domain.IServices;
+using Supermercado.Core.Domain.Models;
 using Supermercado.Core.Domain.Requests;
-using Supermercado.Core.Domain.Services;
 
-namespace Supermercado.Api.Service
+namespace Supermercado.Core.Domain.Services
 {
     public class ProdutoService : IProdutoService
     {
