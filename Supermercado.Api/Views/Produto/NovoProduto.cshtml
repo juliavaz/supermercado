@@ -3,28 +3,31 @@
     ViewData["Title"] = "Novo Produto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!--<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item">Produtos</li>
+        <li class="breadcrumb-item active" aria-current="page">Novo Produto</li>
+    </ol>
+</nav>-->
 
-<h1>Novo Produto</h1>
+<h1>Novo Produto</h1><br/>
+
 <form asp-action="SalvarProduto">
-    <p>
-        <label>Nome</label><br />
-        <input type="text" width="50" maxlength="20" asp-for="Nome" />
-    </p>
-    <p>
-        <label>Quantidade</label><br />
-        <input type="text" width="50" maxlength="20" asp-for="QuantidadePacote" />
-    </p>
-    <p>
-        <label>Categoria</label><br />
-        <select asp-for="Categorias" asp-items="@(new SelectList(Model.Categorias,"Nome", "Nome"))" ></select>
-    </p>
-    <p>
-        @foreach (var item in Model.Categorias)
-        {
-            @item.Nome
-        }
-    </p>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="Nome">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" width="50" maxlength="30" placeholder="Insira o Nome">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="Quantidade">Quantidade</label>
+            <input type="text" asp-for="QuantidadePacote" class="form-control" width="50" maxlength="20" placeholder="Insira a quantidade">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Categoria">Categorias</label>
+        <select class="form-control col-md-8" asp-for="Categorias" asp-items="@(new SelectList(Model.Categorias,"Nome", "Nome"))"></select>
+    </div>
 
-    <input type="submit" value="Enviar" />
-
+    <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
