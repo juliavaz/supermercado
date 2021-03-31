@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Supermercado.Core.Domain.Interfaces;
 using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Requests;
+using Supermercado.Core.Domain.Response;
 using System.Collections.Generic;
 
 namespace Supermercado.Core.Domain.Services
@@ -17,10 +17,10 @@ namespace Supermercado.Core.Domain.Services
             _mapper = mapper;
         }
 
-        public IList<CategoriaRequest> List()
+        public IList<CategoriaResponse> List()
         {
             var list = _categoriaRepository.ListAsync().Result;
-            var result = _mapper.Map<IList<CategoriaRequest>>(list);
+            var result = _mapper.Map<IList<CategoriaResponse>>(list);
             return result;
         }
 
@@ -29,9 +29,11 @@ namespace Supermercado.Core.Domain.Services
             _categoriaRepository.AddAsync(categoria);
         }
 
-        public void Insert(CategoriaRequest categoriaRequest)
+        public void Insert(CategoriaResponse categoriaResponse)
         {
-            var categoria = new Categoria(01, categoriaRequest.Nome);
+            var categoria = new Categoria(01, categoriaResponse.Nome);
+
+            _categoriaRepository.AddAsync(categoria);
             _categoriaRepository.Insert(categoria);
         }
     }

@@ -1,9 +1,9 @@
-﻿using Supermercado.Core.Domain.Requests;
+﻿using Supermercado.Core.Domain.Response;
 
 namespace Supermercado.Core.Domain.Interfaces
 {
     public interface IProdutoService
     {
-        void Insert(ProdutoRequest produtoRequest);
+        void Insert(ProdutoResponse produtoResponse);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Supermercado.Core.Domain.Interfaces;
 using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Requests;
+using Supermercado.Core.Domain.Response;
 
 namespace Supermercado.Core.Domain.Services
 {
@@ -15,10 +15,10 @@ namespace Supermercado.Core.Domain.Services
             _produtoRepository = produtoRepository;
         }
 
-        public void Insert(ProdutoRequest produtoRequest)
+        public void Insert(ProdutoResponse produtoResponse)
         {
             var categoria = _categoriaRepository.FindByIdAsync(101);
-            var produto = new Produto(produtoRequest.Nome, produtoRequest.QuantidadePacote, EnumUnidadeMedida.Unidade, categoria.Result);
+            var produto = new Produto(produtoResponse.Nome, produtoResponse.QuantidadePacote, EnumUnidadeMedida.Unidade, categoria.Result);
 
             _produtoRepository.Insert(produto);
 

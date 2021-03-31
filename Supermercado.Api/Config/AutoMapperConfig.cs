@@ -1,6 +1,6 @@
 using AutoMapper;
 using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Requests;
+using Supermercado.Core.Domain.Response;
 
 namespace Supermercado.Api.Config
 {
@@ -10,7 +10,7 @@ namespace Supermercado.Api.Config
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Categoria, CategoriaRequest>();
+                cfg.CreateMap<Categoria, CategoriaResponse>();
 
             });
             return config.CreateMapper();

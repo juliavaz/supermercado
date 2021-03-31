@@ -1,5 +1,5 @@
 ﻿using Supermercado.Core.Domain.Models;
-using Supermercado.Core.Domain.Requests;
+using Supermercado.Core.Domain.Response;
 using System.Collections.Generic;
 
 namespace Supermercado.Core.Domain.Interfaces
@@ -7,8 +7,8 @@ namespace Supermercado.Core.Domain.Interfaces
     public interface ICategoriaService
     {
         // retorna de forma assíncrona a enumeração de categorias.
-        IList<CategoriaRequest> List();
+        IList<CategoriaResponse> List();
         void Insert(Categoria categoria);
-        void Insert(CategoriaRequest categoriaRequest);
+        void Insert(CategoriaResponse categoriaResponse);
     }
 }

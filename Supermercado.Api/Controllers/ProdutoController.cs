@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Supermercado.Core.Domain.Interfaces;
-using Supermercado.Core.Domain.Requests;
+using Supermercado.Core.Domain.Response;
 
 namespace Supermercado.Api.Controllers
 {
@@ -25,15 +25,15 @@ namespace Supermercado.Api.Controllers
 
         public IActionResult NovoProduto()
         {
-            var request = new ProdutoRequest();
-            request.Categorias = _categoriaService.List();
+            var response = new ProdutoResponse();
+            response.Categorias = _categoriaService.List();
 
-            return View(request);
+            return View(response);
         }
 
-        public IActionResult SalvarProduto(ProdutoRequest produtoRequest)
+        public IActionResult SalvarProduto(ProdutoResponse produtoResponse)
         {
-            _produtoService.Insert(produtoRequest);
+            _produtoService.Insert(produtoResponse);
 
             return RedirectToAction("Index");
         }

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace Supermercado.Core.Domain.Requests
+namespace Supermercado.Core.Domain.Response
 {
-    public class ProdutoRequest
+    public class ProdutoResponse
     {
         public string Nome { get; set; }
         public short QuantidadePacote { get; set; }
-        public IList<CategoriaRequest> Categorias { get; set; }
+        public IList<CategoriaResponse> Categorias { get; set; }
     }
 }
