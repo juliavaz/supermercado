@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Supermercado.Core.Domain.IRepositories
+namespace Supermercado.Core.Domain.Interfaces
 {
     public interface IProdutoRepository
     {

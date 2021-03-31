@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Supermercado.Core.Domain.IRepositories;
-using Supermercado.Core.Domain.IServices;
+using Supermercado.Core.Domain.Interfaces;
 using Supermercado.Core.Domain.Requests;
 
 namespace Supermercado.Api.Controllers

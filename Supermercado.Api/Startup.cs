@@ -7,8 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Supermercado.Api.Config;
 using Supermercado.Api.Persistence.Contexts;
 using Supermercado.Api.Persistence.Repositories;
-using Supermercado.Core.Domain.IRepositories;
-using Supermercado.Core.Domain.IServices;
+using Supermercado.Core.Domain.Interfaces;
 using Supermercado.Core.Domain.Services;
 
 namespace Supermercado

@@ -1,9 +1,8 @@
 ﻿using Supermercado.Core.Domain.Models;
 using Supermercado.Core.Domain.Requests;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace Supermercado.Core.Domain.IServices
+namespace Supermercado.Core.Domain.Interfaces
 {
     public interface ICategoriaService
     {

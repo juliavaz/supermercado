@@ -1,6 +1,6 @@
 ﻿using Supermercado.Core.Domain.Requests;
 
-namespace Supermercado.Core.Domain.IServices
+namespace Supermercado.Core.Domain.Interfaces
 {
     public interface IProdutoService
     {

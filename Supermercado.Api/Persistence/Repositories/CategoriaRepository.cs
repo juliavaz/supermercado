@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Supermercado.Api.Persistence.Contexts;
-using Supermercado.Core.Domain.IRepositories;
+using Supermercado.Core.Domain.Interfaces;
 using Supermercado.Core.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
